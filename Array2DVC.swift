@@ -47,7 +47,6 @@ struct Array2DVC {
     while data != "" {      
       sData = data.split(separator: " ").map(String.init)
       life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
-      print(life)
       data = readLine()!
     }
 
