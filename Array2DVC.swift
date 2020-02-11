@@ -44,12 +44,11 @@ struct Array2DVC {
     var data = readLine()!
     var sData = data.split(separator: " ").map(String.init)
     life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
-    print(life)
-    while data != "" {
-      life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
-      data = readLine()!
+    while data != "" {      
       sData = data.split(separator: " ").map(String.init)
-      
+      life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
+      print(life)
+      data = readLine()!
     }
 
   }

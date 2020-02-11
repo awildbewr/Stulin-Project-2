@@ -23,7 +23,7 @@ struct Colony: CustomStringConvertible{
         for xd in -1...1{
           for yd in -1...1{
             if(xd==0&&yd==0){continue;}
-            neigh+=life[y+yd,x+xd];
+            neigh+=life[y+yd,x+xd]
           }
         }
         var alive=life[y,x]>0;
