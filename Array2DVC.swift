@@ -70,7 +70,7 @@ struct Array2DVC {
         life.evolve()
         print(life)
       case "help": 
-        print("Nice!")   
+        print("Enter an int, followed by enter key to evolve that number of times.")  
       default: 
         print("An error took place: unknown command: \(commandLine[0])")
       }
