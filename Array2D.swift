@@ -8,15 +8,15 @@ struct Array2D: CustomStringConvertible{
     cols = numberCols
     intnal = Array(repeating: 0, count: rows*cols)
   }
-  func isValid(row:Int,col:Int)->Bool{
-    return(0<=row&&row<rows&&0<=col&&col<cols)
+  func isValid(row:Int,col:Int) -> Bool{
+    return(0 <= row && row < rows && 0 <= col && col < cols)
   }
   func index(row:Int,col:Int)->Int{
     if(!isValid(row:row,col:col)){
       print("Array out of bounds error: (\(row),\(col)) in (\(rows),\(cols)).")
       exit(100)
     }
-    return(row*cols+col)
+    return(row * cols + col)
   }
 
   mutating func set(row:Int,col:Int,value:Int){
@@ -49,7 +49,7 @@ struct Array2D: CustomStringConvertible{
       ret+="|"
       for col in 0..<cols{
         
-        ret+="\(intnal[index(row:row,col:col)]>0 ? "██" : "  ")"
+        ret+="\(intnal[index(row:row,col:col)]>0 ? "  " : "██")"
       }
       ret+="|\n"
     }
