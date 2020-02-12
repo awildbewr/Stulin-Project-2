@@ -29,7 +29,6 @@ struct Array2DVC {
   mutating func runLife() {
     print("Welcome to Game of Life!\n")
     protocolInit()
-    prepareTheScene()
     command = getCommand()
     while command != "quit" {
       let commandLine = command.split(separator: " ").map(String.init)
@@ -42,14 +41,17 @@ struct Array2DVC {
   mutating func prepareTheScene() {
     print("Set Initial Cells:")
     var data = readLine()!
-    var sData = data.split(separator: " ").map(String.init)
-    life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
+    var sData = [""]
     while data != "" {      
       sData = data.split(separator: " ").map(String.init)
-      life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
-      data = readLine()!
+      if Int(sData[0]) != nil {
+        life.setCellAlive(row: Int(sData[0])!, col: Int(sData[sData.count - 1])!)
+        data = readLine()!
+      } else {
+        print("An error took place: entered a non-integer: \(data)")
+        data = readLine()!
+      }      
     }
-
   }
 
   mutating func protocolInit() {
@@ -60,14 +62,14 @@ struct Array2DVC {
       size = readLine()!
     }
     life.intnal = Array2DS(numberRows: Int(size)!, numberCols: Int(size)!)
+    prepareTheScene()
   }
   mutating func executeCode(_ commandLine: [String]) {
     if Int(commandLine[0]) == nil {
       switch commandLine[0] {
       case "reinit":
         protocolInit()
-      case "e":
-        life.evolve()
+      case "p":
         print(life)
       case "help": 
         print("Enter an int, followed by enter key to evolve that number of times.")  

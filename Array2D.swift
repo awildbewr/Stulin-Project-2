@@ -49,7 +49,7 @@ struct Array2D: CustomStringConvertible{
       ret+="|"
       for col in 0..<cols{
         
-        ret+="\(intnal[index(row:row,col:col)]>0 ? "  " : "██")"
+        ret+="\(intnal[index(row:row,col:col)]>0 ? "██" : "  ")"
       }
       ret+="|\n"
     }
